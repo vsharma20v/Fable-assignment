@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+
+import Form from "./components/Form";
+import Tree from "./components/Tree";
+
+import "./App.css";
 
 function App() {
+  const [inputValue, setInputValue] = useState("");
+  const [rootNode, setRootNode] = useState(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="container">
+      <Form
+        setInputValue={setInputValue}
+        inputValue={inputValue}
+        setRootNode={setRootNode}
+      />
+      <Tree
+        rootNode={rootNode}
+        setRootNode={setRootNode}
+        inputValue={inputValue}
+      />
+    </main>
   );
 }
 
